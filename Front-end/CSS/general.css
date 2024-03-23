@@ -17,11 +17,11 @@ body{
 header{
         height: 10%;
         width: 100%;
+        min-height: 10%;
 }
 header nav{
         height: 100%;
         width: 100%;
-        min-width: 10%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
