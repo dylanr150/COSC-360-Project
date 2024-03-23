@@ -1,4 +1,42 @@
 html{
+        background-color: #d0bdf4;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
 }
+body{
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        height: 100%;
+}
+header{
+        height: 10%;
+        width: 100%;
+}
+header nav{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+}
+header nav button{
+        background-color: #d0bdf4;
+        border: none;
+        padding: 1em;
+        color: black;
+        font-weight: bold;
+        border-radius: 1em;
+}
+header nav button:hover{
+        background-color: #dcd1ef;
+}
+header nav button:focus{
+        background-color: rgb(200, 178, 237);
+}
+

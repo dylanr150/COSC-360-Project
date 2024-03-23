@@ -5,31 +5,35 @@
     <link rel="stylesheet" href="../CSS/general.css">
     <link rel="stylesheet" href="../CSS/login.css">
     <title>Login</title>
-    <nav>
-      <a href="login.html">Login</a>
-      <a href="register.html">Register</a>
-      <a href="profile.html">Profile</a>
-      <a href="home.html">Home</a>
-      <a href="post.html">Post</a>
-    </nav>
   </head>
   <body>
-    <div class="login-container">
-      <h2>Login</h2>
-      <br>
-      <form action="#" method="post">
-          <label for="email">Email:</label>
-          <input type="text" id="email" name="email" required>
-          <br>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-          <br>
+    <header>
+      <nav>
+        <a href="login.html"><button>Login</button></a>
+        <a href="register.html"><button>Register</button></a>
+        <a href="profile.html"><button>Profile</button></a>
+        <a href="home.html"><button>Home</button></a>
+        <a href="post.html"><button>Post</button></a>
+      </nav>
+    </header>
+    <main>
+      <div class="login-container">
+       <h2 class="login-title">Login</h2>
+       <br>
+        <form action="#" method="post">
+           <label for="email">Email:</label>
+           <input type="text" id="email" name="email" required>
+           <br>
+           <label for="password">Password:</label>
+           <input type="password" id="password" name="password" required>
+           <br>
           <input type="submit" value="Login">
-      </form>
-      <br>
-      <div class="register-link">
+       </form>
+        <br>
+        <div class="register-link">
           <p>Don't have an account? <a href="register.html">Register</a></p>
+        </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>

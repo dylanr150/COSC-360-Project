@@ -5,19 +5,22 @@
     <link rel="stylesheet" href="../CSS/general.css">
     <link rel="stylesheet" href="../CSS/register.css">
     <title>Register</title>
-    <nav>
-      <a href="login.html">Login</a>
-      <a href="register.html">Register</a>
-      <a href="profile.html">Profile</a>
-      <a href="home.html">Home</a>
-      <a href="post.html">Post</a>
-    </nav>
   </head>
   <body>
-    <div class="register-container">
-      <h2>Register</h2>
-      <br>
-      <form action="#" method="post">
+    <header>
+      <nav>
+        <a href="login.html"><button>Login</button></a>
+        <a href="register.html"><button>Register</button></a>
+        <a href="profile.html"><button>Profile</button></a>
+        <a href="home.html"><button>Home</button></a>
+        <a href="post.html"><button>Post</button></a>
+      </nav>
+    </header>
+    <main>
+      <div class="register-container">
+        <h2>Register</h2>
+        <br>
+        <form action="#" method="post">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required>
           <br>
@@ -32,7 +35,8 @@
           <br>
           <input type="submit" value="Register">
           <button onclick="location.href='login.html'" type="button">Cancel</button>
-      </form>
-    </div>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
