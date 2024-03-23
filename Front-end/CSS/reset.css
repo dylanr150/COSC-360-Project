@@ -5,3 +5,7 @@ html, body, header, footer, hgroup, nav, article, section, figure, figcaption, h
         vertical-align: baseline;
         border:         0;
 }
+html{
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+}
