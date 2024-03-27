@@ -1,0 +1,69 @@
+.mainHeader{
+
+}
+.mainBody{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+}
+
+.editProfile-container{
+    display: flex;
+    height: 50%;
+    width: 50%;
+    background-color: #c1b9c9;
+    border: solid 1em #2b292b;
+    border-radius: 2em;
+    overflow: hidden;
+}
+.editProfile-parameters{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    height: 100%;
+    width: 20%;
+    border-right: 1em solid #2b292b;
+    overflow: hidden;
+}
+.editProfile-container h2{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.editProfile-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 55%;
+    overflow: hidden;
+}
+.editProfile-data h3{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.editProfile-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    border-left: 1em solid #2b292b;
+    height: 100%;
+    width: 25%;
+    overflow: hidden;
+}
+.editProfile-buttons button{
+    margin-right: 1em;
+    margin-left: 1em;
+    background-color: #ac75ec;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+}
+.editProfile-buttons button:hover{
+    background-color: #bc82ff;
+}
+.editProfile-buttons button:focus{
+    background-color: #9162c6;
+}
