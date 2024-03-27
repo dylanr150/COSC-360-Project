@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 09:51 AM
+-- Generation Time: Mar 27, 2024 at 09:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `user_info` (
   `username` varchar(20) DEFAULT NULL,
   `email` varchar(40) NOT NULL,
-  `password` varchar(20) DEFAULT NULL,
+  `password` varchar(32) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT NULL,
   `firstname` varchar(20) DEFAULT NULL,
   `lastname` varchar(20) DEFAULT NULL
@@ -41,10 +41,8 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`username`, `email`, `password`, `admin`, `firstname`, `lastname`) VALUES
-('1', '1', 'c4ca4238a0b923820dcc', 0, '1', '1'),
-('test', 'test', '098f6bcd4621d373cade', 0, 'test', 'test'),
-('test2', 'test2', '098f6bcd4621d373cade', 0, 'test', 'test'),
-('testUser', 'testUser@gmail.com', '098f6bcd4621d373cade', 0, 'test', 'user');
+('1', '1', 'c4ca4238a0b923820dcc509a6f75849b', 0, '1', '1'),
+('123', '123', '202cb962ac59075b964b07152d234b70', 0, '123', '123');
 
 --
 -- Indexes for dumped tables
