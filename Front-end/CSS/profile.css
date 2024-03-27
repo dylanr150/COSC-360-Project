@@ -1,0 +1,38 @@
+.mainHeader{
+    display: flex;
+    height: 25%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2em;
+    border-bottom: 1em solid #6f6e6f;
+    display: flex;
+}
+.mainHeaderLeft{
+    display: flex;
+    height: 100%;
+    width: 75%;
+}
+.profilePicture{
+    height: 100%;
+    width: 25%;
+    background: rgb(138, 136, 136);
+}
+.profileInformation{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-left: 2em;
+    justify-content: end;
+    height: 100%;
+    width: 60%;
+}
+.profileInformationItem{
+    padding-top: 1em;
+}
+.mainHeaderRight{
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    height: 100%;
+    width: 50%;
+}
