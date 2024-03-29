@@ -14,8 +14,6 @@ function loginCheck(){
         }
     })
     .catch(error => {
-		window.alert("User is not logged in... redirecting to login page");
-		window.location.href = "http://localhost/COSC-360-Project/Front-end/HTML/login.html";
     });
 }
 
