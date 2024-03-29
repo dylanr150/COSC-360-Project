@@ -1,4 +1,5 @@
 <?php
+session_start();
     if($_SERVER['REQUEST_METHOD'] == "GET"){
         exit("Cannot get data.");
     }
@@ -27,9 +28,17 @@
 
             $dbEmail = $row['email'] ?? [];
             $dbPass = $row['password'] ?? [];
+			$dbUser = $row['username'] ?? [];
+			$dbFirstname = $row['firstname'] ?? [];
+			$dbLastname = $row['lastname'] ?? [];
 
             if($email == $dbEmail && $password == $dbPass){
+				$_SESSION["email"] = $dbEmail;
+				$_SESSION["username"] = $dbUser;
+				$_SESSION["firstname"] = $dbFirstname;
+				$_SESSION["lastname"] = $dbLastname;
                 echo "<p>Valid Account, signed in.</p>";
+				header("Location: http://localhost/COSC-360-Project/Front-end/HTML/profile.html");
             }
             else if(empty($dbEmail) == true || empty($dbPass) == true){
                 echo "<p>Invalid email and/or password.</p>";
@@ -39,6 +48,7 @@
             mysqli_close($connection);
         }
     }
+
 
 
 
