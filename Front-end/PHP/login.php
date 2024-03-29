@@ -31,12 +31,15 @@ session_start();
 			$dbUser = $row['username'] ?? [];
 			$dbFirstname = $row['firstname'] ?? [];
 			$dbLastname = $row['lastname'] ?? [];
+			$dbadmin = $row['admin'] ?? [];
+			$dbcreation_date = $row['creation_date'] ?? [];
 
             if($email == $dbEmail && $password == $dbPass){
 				$_SESSION["email"] = $dbEmail;
 				$_SESSION["username"] = $dbUser;
 				$_SESSION["firstname"] = $dbFirstname;
 				$_SESSION["lastname"] = $dbLastname;
+				$_SESSION["date"] = $dbcreation_date;
                 echo "<p>Valid Account, signed in.</p>";
 				header("Location: http://localhost/COSC-360-Project/Front-end/HTML/profile.html");
             }

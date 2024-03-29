@@ -22,10 +22,11 @@
             $username = $_POST["username"];
             $email = $_POST["email"];
             $password = $_POST["password"];
+			$creation_date = date("Y-m-d");
             $admin = 0;
 
             $sql = "SELECT username, email FROM user_info WHERE username = '$username' OR email = '$email';";
-            $sqlInsert = "INSERT INTO user_info VALUES ('$username', '$email', md5('$password'), $admin,'$firstname','$lastname');";
+            $sqlInsert = "INSERT INTO user_info VALUES ('$username', '$email', md5('$password'), $admin,'$firstname','$lastname', '$creation_date');";
 
             $results = mysqli_query($connection, $sql);
 
