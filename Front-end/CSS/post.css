@@ -1,0 +1,33 @@
+main{
+    min-height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-container{
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    resize: none;
+}
+
+#post-title{
+    width: 60vh;
+}
+
+#post-desc{
+    width: 60vh;
+    height: 40vh;
+}
+
+#submit-button{
+    margin-left: 37.5vh;
+}

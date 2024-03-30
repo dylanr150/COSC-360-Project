@@ -11,5 +11,8 @@ if(isset($_SESSION["username"])){
 	echo '<h1 class="profileInformationItem" id="username">Lastname: ' . $lastname . '</h1>';
 	echo '<h2 class="profileInformationItem" id="postCount">Total Posts: ' . $postcount . '</h2>';
 	echo '<h2 class="profileInformationItem" id="creationDate">Member Since: ' . $creation_date . '</h2>';
-}
+
+	
+}	
 ?>
+

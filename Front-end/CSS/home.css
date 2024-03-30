@@ -1,0 +1,65 @@
+body.all_posts #allposts{
+    color:rgb(0, 173, 185);
+}
+
+body.all_posts #music{
+    color:rgb(0, 173, 185);
+}
+
+body.all_posts #sports{
+    color:rgb(0, 173, 185);
+}
+
+body.all_posts #sports{
+    color:rgb(0, 173, 185);
+}
+
+body.all_posts #news{
+    color:rgb(0, 173, 185);
+}
+
+.postContainer{
+    position: flex;
+    overflow: auto;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vh;
+
+}
+
+.post{
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+#postTitle{
+    min-height: 0;
+    margin-top: 1vh;
+    border: 1px solid black;
+    font-size: 3vh;
+}
+#postDesc{
+    min-height: 0;
+    border: 1px solid black;
+    height:20vh;
+}
+
+#submit-button{
+    margin-left: 65vh;
+}
+
+.tagsContainer{
+    position: relative;
+    
+    background-color: #eae1f0;
+
+}
+
+a:visited{
+    color:blue;
+} 
+
+a:hover{
+    color:rgb(0, 173, 185);
+}
+
