@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2024 at 11:17 AM
+-- Generation Time: Mar 31, 2024 at 06:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,13 +41,15 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`user`, `postID`, `title`, `content`, `creation_date`, `tag`) VALUES
-('Dylan', 1, 'Test', 'This is the first test with tags.', '2024-03-30', 'sports'),
-('Dylan', 2, 'testing music', 'testing music', '2024-03-30', 'music'),
-('Dylan', 3, 'news test', 'news', '2024-03-30', 'news'),
-('Dylan', 4, 'test124124124', 'test2341231', '2024-03-30', 'none'),
-('Dylan', 5, 'test124124124', 'test2341231', '2024-03-30', 'none'),
-('Dylan', 6, 'test124124124', 'test2341231', '2024-03-30', 'none'),
-('Dylan', 7, 'test124124124', 'test2341231', '2024-03-30', 'none');
+('test2User2', 1, 'This is a news test', 'NEWS NEWS NEWS', '2024-03-31', 'news'),
+('test2User2', 2, 'SPORTS SPORTS', 'SPORTS SPORTS IO LOVE SPORTS', '2024-03-31', 'sports'),
+('test2User2', 3, 'WHO DOESNT LOVE MUSIC', 'MUSUIC MUSIC MUSIC', '2024-03-31', 'music'),
+('test2User2', 4, 'test', 'this is a test', '2024-03-31', 'none'),
+('testUser', 5, 'hello im test user', 'hi', '2024-03-31', 'none'),
+('testUser', 6, 'testing on sports', 'complete', '2024-03-31', 'sports'),
+('testUser', 7, 'music!', 'music music', '2024-03-31', 'music'),
+('adminUser', 8, 'IM ADMIN', 'IM ADMIN', '2024-03-31', 'none'),
+('adminUser', 9, 'admin test on sports', 'admin test on sports', '2024-03-31', 'sports');
 
 -- --------------------------------------------------------
 
@@ -70,8 +72,9 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`username`, `email`, `password`, `admin`, `firstname`, `lastname`, `creation_date`) VALUES
-('Dylan', 'dylan', '4f97319b308ed6bd3f0c195c176bbd77', 1, 'dylan', 'dylan', '2024-03-30'),
-('test', 'test', '098f6bcd4621d373cade4e832627b4f6', 0, 'test', 'test', '2024-03-30');
+('adminUser', 'adminUser@gmail.com', 'ad173b6d7864f0dbcfcef93fb926cf66', 0, 'admin', 'user', '2024-03-31'),
+('test2User2', 'test2User2@gmail.com', '19d7b3ef0e28820c3959d6918a0e9a96', 0, 'test2User2', 'User', '2024-03-31'),
+('testUser', 'testUser@gmail.com', '33ef37db24f3a27fb520847dcd549e9f', 0, 'test', 'user', '2024-03-31');
 
 --
 -- Indexes for dumped tables
