@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -38,27 +39,29 @@
           }
           else
           {
-            
+            session_start();
             $sql = "SELECT * FROM post ORDER BY postID DESC";
             $sqlUsers = "SELECT * FROM user_info WHERE admin = 1";
+            $delete = "";
             
             $results = mysqli_query($connection, $sql);
             $results2 = mysqli_query($connection, $sqlUsers);
             $row2 = mysqli_fetch_assoc($results2);
             
-            $id;
+            $user;
+            $username = $_SESSION["username"] ?? [];
             while($row = mysqli_fetch_assoc($results)){
+              $user = $row['user'] ?? [];
               echo "<p class = 'post'>Posted By: ".$row['user']."</p>";
               echo "<h1 class = 'post' id = 'postTitle'>".$row['title']."</h1>";
               echo "<p class = 'post' id = 'postDesc'>".$row['content']."</p>";
               echo "<input id='submit-button' type='submit' value='View More'>";
               $id = $row['postID'];
               
-              // if($row2['admin'] == 1){
-              //   echo "<input type='hidden' name ='temp' value='<?php echo $id>'";
-              //   echo "<input id='submit-button' type='submit' name='delete' value='Delete'>";
-              //   echo "<a href='../PHP/adminDelete.php'><input id='submit-button' type='submit' name='delete' value='Delete'>";
-              // }
+              if($user == $username){
+                $_SESSION['postID'] = $row['postID']; 
+                echo "<form action='../PHP/delete.php' method='post'><input id='submit-button' type='submit' value='Delete'></form>";
+              }
               
             }
             mysqli_free_result($results);
