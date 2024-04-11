@@ -41,7 +41,7 @@ session_start();
 				$_SESSION["lastname"] = $dbLastname;
 				$_SESSION["date"] = $dbcreation_date;
                 echo "<p>Valid Account, signed in.</p>";
-				header("Location: http://localhost/COSC-360-Project/Front-end/HTML/profile.html");
+				header("Location: http://localhost/COSC-360-Project/Front-end/HTML/profile.php");
             }
             else if(empty($dbEmail) == true || empty($dbPass) == true){
                 echo "<p>Invalid email and/or password.</p>";

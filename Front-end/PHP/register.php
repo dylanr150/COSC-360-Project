@@ -36,7 +36,7 @@
             
             if($username == $dbUser || $email == $dbEmail){
                 echo "<p>User already exists with this name and/or email </p>";
-                echo "<p><a href = ../html/register.html>Return to register</a></p>";
+                echo "<p><a href = ../html/register.php>Return to register</a></p>";
             }
             else if(empty($dbUser) == true || empty($dbEmail) == true){
                 mysqli_query($connection, $sqlInsert);

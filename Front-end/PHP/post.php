@@ -33,7 +33,7 @@
 
             mysqli_query($connection, $sqlInsert);
 
-            echo "<p>Successfully posted. <a href = ../HTML/post.html>Return.</a></p>";
+            echo "<p>Successfully posted. <a href = ../HTML/post.php>Return.</a></p>";
 
             mysqli_close($connection);
         }
