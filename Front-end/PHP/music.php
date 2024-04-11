@@ -10,12 +10,21 @@
 	<div class="profileInformation" id="profileInformation"></div>
     <div class="header">
       <nav>
-        <a href="../HTML/login.html"><button>Login</button></a>
-        <a href="../HTML/register.html"><button>Register</button></a>
-        <a href="../HTML/profile.html"><button>Profile</button></a>
+      <?php
+          session_start();
+          if(!isset($_SESSION["username"])){
+          echo '<a href="../HTML/login.php"><button>Login</button></a>';
+          echo '<a href="../HTML/register.php"><button>Register</button></a>';
+          }
+		    ?>
+        <a href="../HTML/profile.php"><button>Profile</button></a>
         <a href="../HTML/home.php"><button>Home</button></a>
-        <a href="../HTML/post.html"><button>Post</button></a>
-		<a href="../PHP/logout.php"><button>Logout</button></a>
+        <a href="../HTML/post.php"><button>Post</button></a>
+				<?php
+          if(isset($_SESSION["username"])){
+          echo '<a href="../PHP/logout.php"><button>Logout</button></a>>';
+          }
+		    ?>
       </nav>
     </div>
     <main>
@@ -43,11 +52,34 @@
             
             $results = mysqli_query($connection, $sql);
             
+            $username = $_SESSION["username"] ?? [];
             while($row = mysqli_fetch_assoc($results)){
-              echo "<p class = 'post'>Posted By: ".$row['user']."</p>";
-              echo "<h1 class = 'post' id = 'postTitle'>".$row['title']."</h1>";
-              echo "<p class = 'post' id = 'postDesc'>".$row['content']."</p>";
-              echo "<a href='#'><input id='submit-button' type='submit' value='View More'><a>";
+              $user = $row['user'] ?? [];
+              $title = $row['title'] ?? [];
+              $content = $row['content'] ?? [];
+              $postID = $row['postID'] ?? [];
+
+              echo "<form method='post' action='../PHP/viewMore.php'>";
+              echo "<p class = 'post'>Posted By: $user</p>";
+              echo "<input type='hidden' value='$user' name = 'user'>";
+
+              echo "<h1 class = 'post' id = 'postTitle'>$title</h1>";
+              echo "<input type='hidden' value='$title' name = 'title'>";
+
+              echo "<p class = 'post' id = 'postDesc'>$content</p>";
+              echo "<input type='hidden' value='$content' name = 'content'>";
+
+              echo "<input type='hidden' value='$postID' name = 'postID'>";
+
+              echo "<input id='submit-button' type='submit' value='View More'>";
+              echo "</form>";
+              
+              
+              if($user == $username){
+                $_SESSION['postID'] = $row['postID']; 
+                echo "<form action='../PHP/delete.php' method='post'><input id='submit-button' type='submit' value='Delete'></form>";
+              }
+              
             }
             mysqli_free_result($results);
             mysqli_close($connection);

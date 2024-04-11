@@ -40,7 +40,7 @@
             }
             else if(empty($dbUser) == true || empty($dbEmail) == true){
                 mysqli_query($connection, $sqlInsert);
-                echo "<p>An account for user $username has been created. <a href = ../HTML/login.html>Click here to sign in.</a></p>";
+                echo "<p>An account for user $username has been created. <a href = ../HTML/login.php>Click here to sign in.</a></p>";
             }
 
 
