@@ -10,11 +10,10 @@ function loginCheck(){
         } else {
             // This block now effectively checks if data is empty and handles redirection.
             window.alert("User is not logged in... redirecting to login page");
-            window.location.href = "http://localhost/COSC-360-Project/Front-end/HTML/login.html";
+            window.location.href = "http://localhost/COSC-360-Project/Front-end/HTML/login.php";
         }
     })
     .catch(error => {
     });
 }
-
 window.onload = loginCheck();
