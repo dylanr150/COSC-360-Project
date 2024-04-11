@@ -1,6 +1,9 @@
 
 <!doctype html>
 <html>
+<?php
+	session_start();
+?>
   <head>
     <link rel="stylesheet" href="../CSS/reset.css">
     <link rel="stylesheet" href="../CSS/general.css">
@@ -11,12 +14,20 @@
 	<div class="profileInformation" id="profileInformation"></div>
     <div class="header">
       <nav>
-        <a href="login.html"><button>Login</button></a>
-        <a href="register.html"><button>Register</button></a>
-        <a href="profile.html"><button>Profile</button></a>
+	  <?php
+			if(!isset($_SESSION["username"])){
+			echo '<a href="login.php"><button>Login</button></a>';
+			echo '<a href="register.php"><button>Register</button></a>';
+			}
+		?>
+        <a href="profile.php"><button>Profile</button></a>
         <a href="home.php"><button>Home</button></a>
-        <a href="post.html"><button>Post</button></a>
-		<a href="../PHP/logout.php"><button>Logout</button></a>
+        <a href="post.php"><button>Post</button></a>
+		<?php
+			if(isset($_SESSION["username"])){
+			echo '<a href="../PHP/logout.php"><button>Logout</button></a>>';
+			}
+		?>
       </nav>
     </div>
     <main>
@@ -39,7 +50,6 @@
           }
           else
           {
-            session_start();
             $sql = "SELECT * FROM post ORDER BY postID DESC";
             $sqlUsers = "SELECT * FROM user_info WHERE admin = 1";
             $delete = "";
