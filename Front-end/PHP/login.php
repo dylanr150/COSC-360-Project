@@ -40,6 +40,7 @@ session_start();
 				$_SESSION["firstname"] = $dbFirstname;
 				$_SESSION["lastname"] = $dbLastname;
 				$_SESSION["date"] = $dbcreation_date;
+				$_SESSION["isAdmin"] = $dbadmin;
                 echo "<p>Valid Account, signed in.</p>";
 				header("Location: http://localhost/COSC-360-Project/Front-end/HTML/profile.php");
             }

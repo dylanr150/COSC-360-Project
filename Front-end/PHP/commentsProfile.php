@@ -18,22 +18,18 @@
   <body class = "all_posts">
     <div class="header">
       <nav>
-      <?php
+	  <?php
 			if(!isset($_SESSION["username"])){
 			echo '<a href="../HTML/login.php"><button>Login</button></a>';
 			echo '<a href="../HTML/register.php"><button>Register</button></a>';
 			}
 		?>
-
+        <a href="../HTML/profile.php"><button>Profile</button></a>
         <a href="../HTML/home.php"><button>Home</button></a>
-
-    <?php
-    
+        <a href="../HTML/post.php"><button>Post</button></a>
+		<?php
 			if(isset($_SESSION["username"])){
-      echo '<a href="../HTML/profile.php"><button>Profile</button></a>';
-			echo '<a href="../HTML/post.php"><button>Post</button></a>';
-			echo '<a href="../PHP/logout.php"><button>Logout</button></a>';
-			
+			echo '<a href="../PHP/logout.php"><button>Logout</button></a>>';
 			}
 		?>
       </nav>
