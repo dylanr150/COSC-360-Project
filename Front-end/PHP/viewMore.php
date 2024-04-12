@@ -94,23 +94,13 @@
           echo "<p class='post' style = 'font-size:1.5vh; font-weight:bold'>$username</p>";
           echo "<p class ='post'>$commentContent</p>";
           
+          
         }
 
         mysqli_free_result($results);
         mysqli_close($connection);
       ?>
       </div>
-      <!-- <script>
-        $("#postComment").click(function(){
-          var str = $("#commentForm").serialize();
-
-          $.ajax({
-            url: "comment.php",
-            data: str,
-            type: 'post'
-          })
-        })
-      </script> -->
       
     </main>
   </body>

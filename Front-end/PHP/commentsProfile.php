@@ -20,13 +20,13 @@
       <nav>
 	  <?php
 			if(!isset($_SESSION["username"])){
-			echo '<a href="login.php"><button>Login</button></a>';
-			echo '<a href="register.php"><button>Register</button></a>';
+			echo '<a href="../HTML/login.php"><button>Login</button></a>';
+			echo '<a href="../HTML/register.php"><button>Register</button></a>';
 			}
 		?>
-        <a href="profile.php"><button>Profile</button></a>
-        <a href="home.php"><button>Home</button></a>
-        <a href="post.php"><button>Post</button></a>
+        <a href="../HTML/profile.php"><button>Profile</button></a>
+        <a href="../HTML/home.php"><button>Home</button></a>
+        <a href="../HTML/post.php"><button>Post</button></a>
 		<?php
 			if(isset($_SESSION["username"])){
 			echo '<a href="../PHP/logout.php"><button>Logout</button></a>>';
@@ -59,7 +59,7 @@
     </main>
     <div class = "postContainer">
       <div class = "tagsContainer"> 
-            <p><a id="allposts" href="profile.php">Posts</a> <a href="../PHP/commentsProfile.php">Comments</a></p>
+            <p><a href="../HTML/profile.php">Posts</a> <a id="commentstag" href="commentsProfile.php">Comments</a></p>
       </div>
     <?php
           $host = "localhost";
@@ -77,38 +77,44 @@
           else
           {
             $username = $_SESSION["username"] ?? [];
-            $sql = "SELECT * FROM post WHERE user='$username' ORDER BY postID DESC";
+            $sql = "SELECT * FROM post ORDER BY postID DESC";
+          //  $sqlComments = "SELECT * FROM comments WHERE user='$username' ORDER BY creation_date DESC";
             $delete = "";
             
             $results = mysqli_query($connection, $sql);   
              
             while($row = mysqli_fetch_assoc($results)){
-              $user = $row['user'] ?? [];
               $title = $row['title'] ?? [];
-              $content = $row['content'] ?? [];
               $postID = $row['postID'] ?? [];
 
-              echo "<form method='post' action='../PHP/delete.php'>";
-              echo "<p class = 'post'>Posted By: $user</p>";
-              echo "<input type='hidden' value='$user' name = 'user'>";
+              $sqlComments = "SELECT * FROM comments WHERE commentID = '$postID' AND user = '$username' ORDER BY creation_date DESC";
+              
+              $results2 = mysqli_query($connection, $sqlComments);  
 
-              echo "<h1 class = 'post' id = 'postTitle'>$title</h1>";
-              echo "<input type='hidden' value='$title' name = 'title'>";
+              while($row2 = mysqli_fetch_assoc($results2)){
+                $username2 = $row2['user'] ?? [];
+                $commentContent = $row2['commentContent'] ?? [];
+                $commentSig = $row2['commentSig'] ?? [];
+                
+                echo "<form method='post' action='../PHP/deleteComment.php'>";
 
-              echo "<p class = 'post' id = 'postDesc'>$content</p>";
-              echo "<input type='hidden' value='$content' name = 'content'>";
+                echo "<br>";
+                echo "<p class='post' style = 'font-size:1.5vh; font-weight:bold'>$username2 &nbsp&nbsp&nbsp&nbsp&nbsp From Post: $title</p>";
+                echo "<p class ='post'>$commentContent</p>";
 
-              echo "<input type='hidden' value='$postID' name = 'postID'>";
+                echo "<input type='hidden' value='$commentSig' name = 'commentSig'>";
 
-              echo "<input id='submit-button' type='submit' value='Delete'>";
+                echo "<input id='deleteBtn' type='submit' value='Delete'>";
 
-              echo "</form>";
+                echo "</form>";
+                
+              }
               
               
               
             }
-            if(empty($postID)){
-              echo "<p>You have no posts!</p>";
+            if(empty($commentSig)){
+              echo "<p>You have no comments!</p>";
             }
             
             mysqli_free_result($results);

@@ -1,3 +1,19 @@
+body.all_posts #allposts{
+    color:rgb(0, 173, 185);
+}
+
+body.all_posts #commentstag{
+    color:rgb(0, 173, 185);
+}
+
+a:visited{
+    color:blue;
+} 
+
+a:hover{
+    color:rgb(0, 173, 185);
+}
+
 .mainHeader{
     display: flex;
     height: 25%;
@@ -36,3 +52,43 @@
     height: 100%;
     width: 50%;
 }
+
+.postContainer{
+    position: flex;
+    overflow: scroll;
+    background-color: white;
+    margin-top: -73vh;
+    margin-left: auto;
+    margin-right: auto;
+    align: center;
+    width: 80vh;
+    height: 73vh;
+
+}
+
+.post{
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+
+
+#postTitle{
+    min-height: 0;
+    margin-top: 1vh;
+    border: 1px solid black;
+    font-size: 3vh;
+}
+#postDesc{
+    min-height: 0;
+    border: 1px solid black;
+    height:20vh;
+}
+
+#submit-button{
+    margin-left: 67.5vh;
+}
+
+#deleteBtn{
+    margin-left: 67.5vh;    
+}
+

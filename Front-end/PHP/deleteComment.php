@@ -15,19 +15,22 @@
             $output = "<p>Unable to connect to database!</p>";
             exit($output);
         }
-        else
-        {
+        else{
             session_start();
-            $username = $_SESSION["username"];
-            $commentContent = $_POST["comment"];
-            $creation_date = date("Y-m-d");
-            $postID = $_SESSION["postID"];
+            $commentToDelete = $_POST['commentSig'];
 
-            $sqlInsert = "INSERT INTO comments (commentID, user, commentContent, creation_date) VALUES ('$postID', '$username', '$commentContent', '$creation_date');";
-            mysqli_query($connection, $sqlInsert);
+            $sql = "DELETE FROM comments WHERE commentSig = '$commentToDelete'";
+            $fkDisable = "SET FOREIGN_KEY_CHECKS=0";
+            $fkEnable = "SET FOREIGN_KEY_CHECKS=1";
+            
+            mysqli_query($connection, $fkDisable);
+            mysqli_query($connection, $sql);
+            mysqli_query($connection, $fkEnable);
 
-            echo "<p>Successfully posted. <a href = ../HTML/home.php>Return.</a></p>";
-        
+            echo "<p>Succesfully deleted. Return to <a href='../HTML/profile.php'>home</a></p>";
+
+            mysqli_close($connection);
         }
     }
+
 ?>
