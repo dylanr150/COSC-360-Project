@@ -24,10 +24,12 @@
         <a href="../HTML/home.php"><button>Home</button></a>
 
     <?php
+    
 			if(isset($_SESSION["username"])){
-			echo '<a href="../PHP/logout.php"><button>Logout</button></a>';
-			echo '<a href="../HTML/profile.php"><button>Profile</button></a>';
+      echo '<a href="../HTML/profile.php"><button>Profile</button></a>';
 			echo '<a href="../HTML/post.php"><button>Post</button></a>';
+			echo '<a href="../PHP/logout.php"><button>Logout</button></a>';
+			
 			}
 		?>
       </nav>
@@ -59,17 +61,9 @@
             echo "<p class = 'post'>Posted By: $user</p>";
             echo "<h1 class = 'post' id = 'postTitle'>$title</h1>";
             echo "<p class = 'post' id = 'postDesc'>$content</p>";
+            echo "<a href = '../HTML/home.php' class = 'post'><button type='button'>Back</button></a>";
             echo "<br><br><br>";
 
-            // $results = mysqli_query($connection, $sql);
-            
-            // $row = mysqli_fetch_assoc($results);
-            
-            
-            // echo "<a href='../PHP/viewMore.php'><input id='submit-button' type='submit' value='View More'><a>";
-            
-            // mysqli_free_result($results);
-            // mysqli_close($connection);
             echo "<p class = 'post' style ='font-weight:bold'>Comments</p>";
 
             if(isset($_SESSION["username"])){

@@ -14,19 +14,20 @@
 	<div class="profileInformation" id="profileInformation"></div>
     <div class="header">
       <nav>
-	  <?php
+      <?php
 			if(!isset($_SESSION["username"])){
-			echo '<a href="login.php"><button>Login</button></a>';
-			echo '<a href="register.php"><button>Register</button></a>';
+			echo '<a href="../HTML/login.php"><button>Login</button></a>';
+			echo '<a href="../HTML/register.php"><button>Register</button></a>';
 			}
 		?>
 
-        <a href="home.php"><button>Home</button></a>
+        <a href="../HTML/home.php"><button>Home</button></a>
 
     <?php
+    
 			if(isset($_SESSION["username"])){
-      echo '<a href="profile.php"><button>Profile</button></a>';
-			echo '<a href="post.php"><button>Post</button></a>';
+      echo '<a href="../HTML/profile.php"><button>Profile</button></a>';
+			echo '<a href="../HTML/post.php"><button>Post</button></a>';
 			echo '<a href="../PHP/logout.php"><button>Logout</button></a>';
 			
 			}
@@ -36,11 +37,11 @@
     <main>
       <div class = "postContainer">
         <div class = "tagsContainer"> 
-          <form method = "post" action = "../PHP/searchResults.php">
+          <!-- <forum method = "post" action = "../PHP/searchResults.php">
             <input type="text" name = "search" id = "search" placeholder = "Search...">
             <input id="searchbtn" type='submit' value='Go'>
-          </form>
-          <p>View By Tags: <a id="allposts" href="home.php">All Posts</a> <a href="../PHP/music.php">Music</a> <a href="../PHP/sports.php">Sports</a> <a href="../PHP/news.php">News</a></p>
+          </forum> -->
+          <a href = '../HTML/home.php'><button type='button' id = "returnbtn">Return</button></a>
         </div>
         <?php
           $host = "localhost";
@@ -57,7 +58,8 @@
           }
           else
           {
-            $sql = "SELECT * FROM post ORDER BY postID DESC";
+            $search = $_POST["search"];
+            $sql = "SELECT * FROM post WHERE title like '%$search%' ORDER BY postID DESC";
             $sqlUsers = "SELECT * FROM user_info WHERE admin = 1";
             $delete = "";
             
