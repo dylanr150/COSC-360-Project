@@ -20,12 +20,15 @@
 			echo '<a href="register.php"><button>Register</button></a>';
 			}
 		?>
-        <a href="profile.php"><button>Profile</button></a>
+
         <a href="home.php"><button>Home</button></a>
-        <a href="post.php"><button>Post</button></a>
-		<?php
+
+    <?php
 			if(isset($_SESSION["username"])){
-			echo '<a href="../PHP/logout.php"><button>Logout</button></a>>';
+      echo '<a href="profile.php"><button>Profile</button></a>';
+			echo '<a href="post.php"><button>Post</button></a>';
+			echo '<a href="../PHP/logout.php"><button>Logout</button></a>';
+			
 			}
 		?>
       </nav>
