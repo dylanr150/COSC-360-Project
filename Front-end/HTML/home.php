@@ -80,12 +80,6 @@
               echo "<input id='submit-button' type='submit' value='View More'>";
               echo "</form>";
               
-              
-              if($user == $username){
-                $_SESSION['postID'] = $row['postID']; 
-                echo "<form action='../PHP/delete.php' method='post'><input id='submit-button' type='submit' value='Delete'></form>";
-              }
-              
             }
             mysqli_free_result($results);
             mysqli_close($connection);

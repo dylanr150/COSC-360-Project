@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 01:16 PM
+-- Generation Time: Apr 12, 2024 at 05:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,22 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comments` (
+  `commentSig` int(11) NOT NULL,
   `commentID` int(255) DEFAULT NULL,
   `user` varchar(20) DEFAULT NULL,
   `commentContent` varchar(5000) DEFAULT NULL,
   `creation_date` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`commentID`, `user`, `commentContent`, `creation_date`) VALUES
-(9, 'testuser3', 'test', '2024-04-11'),
-(10, 'testuser3', 'testtt', '2024-04-11'),
-(10, 'testuser3', 'testttttt', '2024-04-11'),
-(10, 'testuser3', 'testttttt', '2024-04-11'),
-(9, 'testuser3', 'testtttttt', '2024-04-11');
 
 -- --------------------------------------------------------
 
@@ -73,8 +63,7 @@ INSERT INTO `post` (`user`, `postID`, `title`, `content`, `creation_date`, `tag`
 ('testUser', 6, 'testing on sports', 'complete', '2024-03-31', 'sports'),
 ('testUser', 7, 'music!', 'music music', '2024-03-31', 'music'),
 ('adminUser', 8, 'IM ADMIN', 'IM ADMIN', '2024-03-31', 'none'),
-('adminUser', 9, 'admin test on sports', 'admin test on sports', '2024-03-31', 'sports'),
-('testuser3', 10, 'testttttttttting', 'testinggggggggg', '2024-04-11', 'none');
+('adminUser', 9, 'admin test on sports', 'admin test on sports', '2024-03-31', 'sports');
 
 -- --------------------------------------------------------
 
@@ -110,6 +99,7 @@ INSERT INTO `user_info` (`username`, `email`, `password`, `admin`, `firstname`, 
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
+  ADD PRIMARY KEY (`commentSig`),
   ADD KEY `commentID` (`commentID`);
 
 --
@@ -117,7 +107,7 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`postID`),
-  ADD KEY `user` (`user`);
+  ADD KEY `post_ibfk_1` (`user`);
 
 --
 -- Indexes for table `user_info`
@@ -126,14 +116,18 @@ ALTER TABLE `user_info`
   ADD PRIMARY KEY (`username`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`commentID`) REFERENCES `post` (`postID`);
+  MODIFY `commentSig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
 
 --
 -- Constraints for table `post`

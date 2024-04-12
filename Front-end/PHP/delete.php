@@ -17,10 +17,22 @@
         }
         else{
             session_start();
-            $postToDelete = $_SESSION['postID'];
+            $postToDelete = $_POST['postID'];
 
-            echo "<p>Sorry something went wrong. Return to <a href='../HTML/home.php'>home</a></p>";
+            $sql = "DELETE FROM post WHERE postID = '$postToDelete'";
+            $fkDisable = "SET FOREIGN_KEY_CHECKS=0";
+            $fkEnable = "SET FOREIGN_KEY_CHECKS=1";
+            
+            mysqli_query($connection, $fkDisable);
+            mysqli_query($connection, $sql);
+            mysqli_query($connection, $fkEnable);
 
+            $sql2 = "DELETE FROM comments WHERE commentID = '$postToDelete'";
+            mysqli_query($connection, $sql2);
+
+            echo "<p>Succesfully deleted. Return to <a href='../HTML/profile.php'>home</a></p>";
+
+            mysqli_close($connection);
         }
     }
 
