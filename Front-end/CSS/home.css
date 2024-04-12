@@ -65,3 +65,17 @@ a:hover{
     color:rgb(0, 173, 185);
 }
 
+#search{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    width: 70vh;
+}
+
+#searchbtn{
+    width:6vh;
+}
+
+#returnbtn{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
