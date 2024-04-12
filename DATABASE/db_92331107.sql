@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 06:36 AM
+-- Generation Time: Apr 11, 2024 at 01:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_92331107`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `commentID` int(255) DEFAULT NULL,
+  `user` varchar(20) DEFAULT NULL,
+  `commentContent` varchar(5000) DEFAULT NULL,
+  `creation_date` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`commentID`, `user`, `commentContent`, `creation_date`) VALUES
+(9, 'testuser3', 'test', '2024-04-11'),
+(10, 'testuser3', 'testtt', '2024-04-11'),
+(10, 'testuser3', 'testttttt', '2024-04-11'),
+(10, 'testuser3', 'testttttt', '2024-04-11'),
+(9, 'testuser3', 'testtttttt', '2024-04-11');
 
 -- --------------------------------------------------------
 
@@ -49,7 +73,8 @@ INSERT INTO `post` (`user`, `postID`, `title`, `content`, `creation_date`, `tag`
 ('testUser', 6, 'testing on sports', 'complete', '2024-03-31', 'sports'),
 ('testUser', 7, 'music!', 'music music', '2024-03-31', 'music'),
 ('adminUser', 8, 'IM ADMIN', 'IM ADMIN', '2024-03-31', 'none'),
-('adminUser', 9, 'admin test on sports', 'admin test on sports', '2024-03-31', 'sports');
+('adminUser', 9, 'admin test on sports', 'admin test on sports', '2024-03-31', 'sports'),
+('testuser3', 10, 'testttttttttting', 'testinggggggggg', '2024-04-11', 'none');
 
 -- --------------------------------------------------------
 
@@ -74,11 +99,18 @@ CREATE TABLE `user_info` (
 INSERT INTO `user_info` (`username`, `email`, `password`, `admin`, `firstname`, `lastname`, `creation_date`) VALUES
 ('adminUser', 'adminUser@gmail.com', 'ad173b6d7864f0dbcfcef93fb926cf66', 0, 'admin', 'user', '2024-03-31'),
 ('test2User2', 'test2User2@gmail.com', '19d7b3ef0e28820c3959d6918a0e9a96', 0, 'test2User2', 'User', '2024-03-31'),
-('testUser', 'testUser@gmail.com', '33ef37db24f3a27fb520847dcd549e9f', 0, 'test', 'user', '2024-03-31');
+('testUser', 'testUser@gmail.com', '33ef37db24f3a27fb520847dcd549e9f', 0, 'test', 'user', '2024-03-31'),
+('testuser3', 'testuser3@gmail.com', '33ef37db24f3a27fb520847dcd549e9f', 0, 'test', 'user', '2024-04-11');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD KEY `commentID` (`commentID`);
 
 --
 -- Indexes for table `post`
@@ -96,6 +128,12 @@ ALTER TABLE `user_info`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`commentID`) REFERENCES `post` (`postID`);
 
 --
 -- Constraints for table `post`

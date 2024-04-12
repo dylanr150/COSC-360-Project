@@ -58,15 +58,28 @@
             $results2 = mysqli_query($connection, $sqlUsers);
             $row2 = mysqli_fetch_assoc($results2);
             
-            $user;
             $username = $_SESSION["username"] ?? [];
             while($row = mysqli_fetch_assoc($results)){
               $user = $row['user'] ?? [];
-              echo "<p class = 'post'>Posted By: ".$row['user']."</p>";
-              echo "<h1 class = 'post' id = 'postTitle'>".$row['title']."</h1>";
-              echo "<p class = 'post' id = 'postDesc'>".$row['content']."</p>";
+              $title = $row['title'] ?? [];
+              $content = $row['content'] ?? [];
+              $postID = $row['postID'] ?? [];
+
+              echo "<form method='post' action='../PHP/viewMore.php'>";
+              echo "<p class = 'post'>Posted By: $user</p>";
+              echo "<input type='hidden' value='$user' name = 'user'>";
+
+              echo "<h1 class = 'post' id = 'postTitle'>$title</h1>";
+              echo "<input type='hidden' value='$title' name = 'title'>";
+
+              echo "<p class = 'post' id = 'postDesc'>$content</p>";
+              echo "<input type='hidden' value='$content' name = 'content'>";
+
+              echo "<input type='hidden' value='$postID' name = 'postID'>";
+
               echo "<input id='submit-button' type='submit' value='View More'>";
-              $id = $row['postID'];
+              echo "</form>";
+              
               
               if($user == $username){
                 $_SESSION['postID'] = $row['postID']; 
