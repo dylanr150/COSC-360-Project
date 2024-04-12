@@ -36,10 +36,6 @@
     <main>
       <div class = "postContainer">
         <div class = "tagsContainer"> 
-          <form method = "post" action = "../PHP/searchResults.php">
-            <input type="text" name = "search" id = "search" placeholder = "Search...">
-            <input id="searchbtn" type='submit' value='Go'>
-          </form>
           <p>View By Tags: <a id="allposts" href="home.php">All Posts</a> <a href="../PHP/music.php">Music</a> <a href="../PHP/sports.php">Sports</a> <a href="../PHP/news.php">News</a></p>
         </div>
         <?php
@@ -85,6 +81,7 @@
               echo "<input type='hidden' value='$postID' name = 'postID'>";
 
               echo "<input id='submit-button' type='submit' value='View More'>";
+			  
               echo "</form>";
               
             }
